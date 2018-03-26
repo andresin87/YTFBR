@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from '../../logo.svg';
 
-class Home extends Component {
+class About extends Component {
   render() {
     return ([
       <header className="App-header">
@@ -15,4 +15,4 @@ class Home extends Component {
   }
 }
 
-export default Home;
+export default About;

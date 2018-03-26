@@ -7,6 +7,7 @@ const Menu = () => (
     <li><Link to="/">Home</Link></li>
     <li><Link to="/battle">Battle</Link></li>
     <li><Link to="/player">Player</Link></li>
+    <li><Link to="/gun">Gun</Link></li>
     <li><Link to="/about">About</Link></li>
   </ul>
 );
