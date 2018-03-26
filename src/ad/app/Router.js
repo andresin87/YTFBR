@@ -10,7 +10,7 @@ import Gun from './Gun';
 
 const Main = () => (
   <Switch>
-    <Route exact path='/' render={() => (<TemplateMenu><Home /></TemplateMenu>)}/>
+    <Route exact path='/' render={() => (<TemplateMenu><Home/></TemplateMenu>)}/>
     <Route exact path='/battle' render={() => (
       <TemplateMenu>
         <Battle
@@ -99,7 +99,7 @@ const Main = () => (
             const temporal = {};
             debugger;
             data.forEach((element) => {
-              if(!temporal[element.Killed]) {
+              if (!temporal[element.Killed]) {
                 temporal[element.Killed] = {
                   Killer: element.Killed,
                   Killed: [],
@@ -108,52 +108,52 @@ const Main = () => (
             });
             data.forEach((element) => {
               if (element.Killer) {
-                  try{
-                    temporal[element.Killer].Killed.push({
-                      Killed: element.Killed,
-                      min: element.min,
-                      sec: element.sec,
-                      Info: element.Info,
-                    });
-                  } catch (e) {
-                      console.warn(element.Killer);
-                  }
+                try {
+                  temporal[element.Killer].Killed.push({
+                    Killed: element.Killed,
+                    min: element.min,
+                    sec: element.sec,
+                    Info: element.Info,
+                  });
+                } catch (e) {
+                  console.warn(element.Killer);
+                }
               }
             });
             return Object.keys(temporal).map((key) => ({
               ...(temporal[key])
             })).sort((a, b) => a.Killed.length <= b.Killed.length);
           }}
-          columns={[
-            {
-              Header: "Position",
-              id: "index",
-              accessor: d => d.n - d.Index
-            },
-            {
-              Header: "Killer",
-              id: "killer",
-              accessor: d => d.Killer
-            },
-            {
-              Header: "Kills",
-              id: "killed",
-              accessor: d => d.Killed,
-              Cell: (row) => (null),
-            },
-          ]}
-          subRowsKey="Killed"
-        />
-      </TemplateMenu>
-    )}/>
-    <Route exact path='/battle/resume' render={() => (
-      <TemplateMenu>
-        <Battle file={'/data/partida1/data.tsv'} />
-      </TemplateMenu>
-    )}/>
-    <Route exact path='/player' render={() => (<TemplateMenu><Player /></TemplateMenu>)}/>
-    <Route exact path='/gun' render={() => (<TemplateMenu><Gun /></TemplateMenu>)}/>
-    <Route exact path='/about' render={() => (<TemplateMenu><About /></TemplateMenu>)}/>
-  </Switch>
-);
-export default Main;
+            columns={[
+          {
+            Header: "Position",
+            id: "index",
+            accessor: d => d.n - d.Index
+          },
+          {
+            Header: "Killer",
+            id: "killer",
+            accessor: d => d.Killer
+          },
+          {
+            Header: "Kills",
+            id: "killed",
+            accessor: d => d.Killed,
+            Cell: (row) => (null),
+          },
+            ]}
+            subRowsKey="Killed"
+            />
+            </TemplateMenu>
+            )}/>
+        <Route exact path='/battle/resume' render={() => (
+          <TemplateMenu>
+            <Battle file={'/data/partida1/data.tsv'}/>
+          </TemplateMenu>
+        )}/>
+        <Route exact path='/player' render={() => (<TemplateMenu><Player/></TemplateMenu>)}/>
+        <Route exact path='/gun' render={() => (<TemplateMenu><Gun/></TemplateMenu>)}/>
+        <Route exact path='/about' render={() => (<TemplateMenu><About/></TemplateMenu>)}/>
+      </Switch>
+    );
+      export default Main;
