@@ -1,0 +1,11 @@
+{
+  "name": "YTFBR",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/andresin87/YTFBR.git",
+  "author": "Andrés Lucas <alucas@redpoints.com>",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^16.2.0"
+  }
+}
